@@ -2,45 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-body {
-  margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-900 to-slate-800 min-h-screen text-white;
+    background-image: url('/src/assets/farm-pattern.png'), linear-gradient(to bottom right, #0f172a, #1e293b);
+    background-attachment: fixed;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Custom utility classes */
 @layer components {
-  .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out;
+  .glass {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20;
   }
   
-  .btn-secondary {
-    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out;
+  .glass-card {
+    @apply glass transition-all duration-300 hover:bg-white/15 hover:shadow-xl;
   }
   
-  .btn-outline {
-    @apply border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out;
+  .glass-button {
+    @apply glass px-6 py-2 font-medium transition-all duration-300 hover:bg-white/20 active:scale-95;
   }
   
-  .input-field {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  .glass-input {
+    @apply glass py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/15;
   }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-} 
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-900/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-white/30;
+}
