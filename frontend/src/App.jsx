@@ -14,6 +14,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 // Pages
 import Home from './pages/Home';
 import Login from './pages/auth/Login';
+import ComponentShowcase from './pages/ComponentShowcase';
 // import Register from './pages/auth/Register';
 // import Dashboard from './pages/Dashboard';
 // import EquipmentList from './pages/equipment/EquipmentList';
@@ -43,6 +44,7 @@ function App() {
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/showcase" element={<ComponentShowcase />} />
             <Route path="/login" element={<Login />} />
             {/* <Route path="/register" element={<Register />} /> */}
             
